@@ -37,20 +37,36 @@ const scaleIn = {
   visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } }
 };
 
-// Catégories avec les vrais assets
+// TOUTES les 21 Catégories avec les vrais assets
 const categories = [
-  { id: 'sport', name: 'Sport', image: '/images/categories/Cat_Sport.png', color: 'from-orange-500 to-red-600' },
-  { id: 'science', name: 'Science', image: '/images/categories/Cat_Science.png', color: 'from-blue-500 to-cyan-500' },
-  { id: 'culture', name: 'Culture', image: '/images/categories/Cat_Culture.png', color: 'from-purple-500 to-pink-500' },
-  { id: 'tech', name: 'Tech', image: '/images/categories/Cat_Tech.png', color: 'from-green-500 to-emerald-500' },
-  { id: 'cinema', name: 'Cinéma', image: '/images/categories/Cat_Cinema.png', color: 'from-yellow-500 to-orange-500' },
-  { id: 'musique', name: 'Musique', image: '/images/categories/Cat_Musique.png', color: 'from-pink-500 to-rose-500' },
-  { id: 'geographie', name: 'Géographie', image: '/images/categories/Cat_Geographie.png', color: 'from-teal-500 to-cyan-500' },
-  { id: 'histoire', name: 'Histoire', image: '/images/categories/Cat_Histoire.png', color: 'from-amber-600 to-yellow-500' },
-  { id: 'gastronomie', name: 'Gastronomie', image: '/images/categories/Cat_Gastronomie.png', color: 'from-red-500 to-orange-500' },
-  { id: 'art', name: 'Art', image: '/images/categories/Cat_Art.png', color: 'from-violet-500 to-purple-500' },
-  { id: 'jeux_video', name: 'Jeux Vidéo', image: '/images/categories/Cat_Jeux_Video.png', color: 'from-indigo-500 to-blue-500' },
-  { id: 'series_tv', name: 'Séries TV', image: '/images/categories/Cat_Series_TV.png', color: 'from-rose-500 to-pink-500' },
+  { id: 'sport', name: 'Sport', image: '/images/categories/Cat_Sport.png', color: 'from-green-500 to-emerald-600', questions: 150 },
+  { id: 'science', name: 'Science', image: '/images/categories/Cat_Science.png', color: 'from-blue-500 to-cyan-600', questions: 120 },
+  { id: 'culture', name: 'Culture', image: '/images/categories/Cat_Culture.png', color: 'from-purple-500 to-violet-600', questions: 200 },
+  { id: 'tech', name: 'Tech', image: '/images/categories/Cat_Tech.png', color: 'from-cyan-500 to-blue-600', questions: 100 },
+  { id: 'cinema', name: 'Cinéma', image: '/images/categories/Cat_Cinema.png', color: 'from-red-500 to-rose-600', questions: 180 },
+  { id: 'musique', name: 'Musique', image: '/images/categories/Cat_Musique.png', color: 'from-pink-500 to-fuchsia-600', questions: 160 },
+  { id: 'geographie', name: 'Géographie', image: '/images/categories/Cat_Geographie.png', color: 'from-teal-500 to-green-600', questions: 140 },
+  { id: 'histoire', name: 'Histoire', image: '/images/categories/Cat_Histoire.png', color: 'from-amber-500 to-orange-600', questions: 170 },
+  { id: 'gastronomie', name: 'Gastronomie', image: '/images/categories/Cat_Gastronomie.png', color: 'from-orange-500 to-red-600', questions: 90 },
+  { id: 'art', name: 'Art', image: '/images/categories/Cat_Art.png', color: 'from-fuchsia-500 to-purple-600', questions: 110 },
+  { id: 'jeux_video', name: 'Jeux Vidéo', image: '/images/categories/Cat_Jeux_Video.png', color: 'from-indigo-500 to-violet-600', questions: 130 },
+  { id: 'series_tv', name: 'Séries TV', image: '/images/categories/Cat_Series_TV.png', color: 'from-rose-500 to-pink-600', questions: 150 },
+  { id: 'biologie', name: 'Biologie', image: '/images/categories/Cat_Biologie.png', color: 'from-lime-500 to-green-600', questions: 100 },
+  { id: 'astronomie', name: 'Astronomie', image: '/images/categories/Cat_Astronomie.png', color: 'from-slate-500 to-indigo-600', questions: 80 },
+  { id: 'economie', name: 'Économie', image: '/images/categories/Cat_Economie.png', color: 'from-emerald-500 to-teal-600', questions: 70 },
+  { id: 'football', name: 'Football', image: '/images/categories/Cat_Football.png', color: 'from-green-600 to-emerald-700', questions: 200 },
+  { id: 'basketball', name: 'Basketball', image: '/images/categories/Cat_Basketball.png', color: 'from-orange-600 to-amber-700', questions: 90 },
+  { id: 'theatre', name: 'Théâtre', image: '/images/categories/Cat_Theatre.png', color: 'from-red-600 to-rose-700', questions: 60 },
+  { id: 'divertissement', name: 'Divertissement', image: '/images/categories/Cat_Divertissement.png', color: 'from-yellow-500 to-amber-600', questions: 120 },
+  { id: 'animaux', name: 'Animaux', image: '/images/categories/Cat_Animaux.png', color: 'from-amber-600 to-yellow-700', questions: 110 },
+];
+
+// 4 Achievements avec les vrais assets
+const achievements = [
+  { id: 'premiere_victoire', name: 'Première Victoire', image: '/images/achievements/Achiev_Premiere_Victoire.png', description: 'Gagne ta première partie', unlocked: true },
+  { id: '10_victoires', name: '10 Victoires', image: '/images/achievements/Achiev_10_Victoires.png', description: 'Gagne 10 parties', unlocked: false },
+  { id: '100_questions', name: '100 Questions', image: '/images/achievements/Achiev_100_Questions.png', description: 'Réponds à 100 questions', unlocked: false },
+  { id: 'serie_parfaite', name: 'Série Parfaite', image: '/images/achievements/Achiev_Serie_Parfaite.png', description: '10 bonnes réponses consécutives', unlocked: false },
 ];
 
 // Badges de ligues avec les vrais assets
@@ -189,7 +205,7 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
-            className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 md:gap-4 max-w-5xl mx-auto"
+            className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-7 gap-3 md:gap-4 max-w-6xl mx-auto"
           >
             {categories.map((category, index) => (
               <motion.button
@@ -296,6 +312,67 @@ const LeaguesSection = () => {
               <span className="text-gray-400 text-sm md:text-base mt-3 group-hover:text-white transition-colors">
                 {league.name}
               </span>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+// Section Achievements avec les vrais badges
+const AchievementsSection = () => {
+  return (
+    <section className="py-16 bg-gradient-to-b from-gray-900 to-black">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+          className="text-center mb-12"
+        >
+          <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Tes <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Achievements</span>
+          </motion.h2>
+          <motion.p variants={fadeInUp} className="text-white/60 max-w-xl mx-auto">
+            Débloque des badges en accomplissant des défis
+          </motion.p>
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
+        >
+          {achievements.map((achievement, index) => (
+            <motion.div
+              key={achievement.id}
+              variants={scaleIn}
+              className={`relative flex flex-col items-center p-6 rounded-2xl border transition-all duration-300 ${
+                achievement.unlocked 
+                  ? 'bg-gradient-to-br from-purple-900/50 to-cyan-900/50 border-purple-500/30 hover:border-cyan-500/50' 
+                  : 'bg-white/5 border-white/10 opacity-60'
+              }`}
+            >
+              {achievement.unlocked && (
+                <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+              )}
+              <img 
+                src={achievement.image} 
+                alt={achievement.name}
+                className={`w-20 h-20 object-contain mb-4 ${
+                  achievement.unlocked ? 'drop-shadow-[0_0_15px_rgba(168,85,247,0.5)]' : 'grayscale'
+                }`}
+              />
+              <h3 className="text-sm font-bold text-white mb-1 text-center">{achievement.name}</h3>
+              <p className="text-xs text-white/50 text-center">{achievement.description}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -512,6 +589,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <LeaguesSection />
+      <AchievementsSection />
       <Features />
       <LeaderboardPreview />
       <CTASection />
