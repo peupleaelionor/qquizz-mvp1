@@ -7,7 +7,7 @@
   "regions": ["iad1"],
   "rewrites": [
     {
-      "source": "/((?!api/).*)",
+      "source": "/((?!api/|assets/|images/).*)",
       "destination": "/index.html"
     }
   ],
