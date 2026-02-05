@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { AuthProvider } from "./contexts/AuthContext";
 import Onboarding from "./components/Onboarding";
+import { getAssetPath } from "./lib/assets";
 
 // Lazy load pages for better performance
 const Home = lazy(() => import("./pages/Home"));
@@ -21,6 +22,7 @@ const ProfilePage = lazy(() => import("./pages/ProfilePage"));
 const GameMode = lazy(() => import("./pages/GameMode"));
 const AuthPage = lazy(() => import("./pages/AuthPage"));
 const FeedPage = lazy(() => import("./pages/FeedPage"));
+const SettingsPage = lazy(() => import("./pages/SettingsPage"));
 
 // Loading component
 function LoadingScreen() {
@@ -31,7 +33,7 @@ function LoadingScreen() {
           <div className="absolute inset-0 rounded-full border-4 border-violet-500/30 animate-ping" />
           <div className="absolute inset-0 rounded-full border-4 border-t-violet-500 border-r-fuchsia-500 border-b-cyan-500 border-l-transparent animate-spin" />
           <img 
-            src="/images/logo/Logo_Principal_Neon.png" 
+            src={getAssetPath('/images/logo/Logo_Principal_Neon.png')} 
             alt="QQUIZ PRODIGY"
             className="absolute inset-2 w-16 h-16 object-contain"
           />
@@ -84,6 +86,7 @@ function App() {
                 <Route path="/game-mode" element={<GameMode />} />
                 <Route path="/leaderboard" element={<LeaderboardPage />} />
                 <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/settings" element={<SettingsPage />} />
               </Routes>
             </Suspense>
           </BrowserRouter>

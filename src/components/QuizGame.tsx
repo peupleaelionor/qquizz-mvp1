@@ -8,6 +8,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Clock, Zap, Trophy, Target, Star, Home, Share2, Flame, Volume2, VolumeX } from 'lucide-react';
 import { feedService } from '@/lib/feedService';
+import { getAssetPath } from '@/lib/assets';
 import { useAuth } from '@/contexts/AuthContext';
 import { Question, getQuestionsByCategory, getRandomQuestions } from '@/lib/questionsDB';
 import { 
@@ -19,6 +20,7 @@ import {
   GameResult,
   getLeagueBadge
 } from '@/lib/userSystem';
+import { calculateAnswerScore, calculateGameSummary, ScoreResult } from '@/lib/scoringSystem';
 
 interface LocationState {
   category?: string;
@@ -28,23 +30,23 @@ interface LocationState {
 
 // Mapping des catégories vers les backgrounds
 const categoryBackgrounds: Record<string, string> = {
-  'rap': '/images/questions/bg_rap.png',
-  'football': '/images/questions/bg_football.png',
-  'football-africain': '/images/questions/bg_football.png',
-  'manga': '/images/questions/bg_manga.png',
-  'netflix': '/images/questions/bg_netflix.png',
-  'crypto': '/images/questions/bg_crypto.png',
-  'kpop': '/images/questions/bg_kpop.png',
-  'afrobeats': '/images/questions/bg_afrobeats.png',
-  'nba': '/images/questions/bg_nba.png',
-  'marvel': '/images/questions/bg_marvel.png',
-  'gaming': '/images/questions/bg_gaming.png',
-  'gaming-pro': '/images/questions/bg_gaming.png',
-  'tiktok': '/images/questions/bg_tiktok.png',
-  'afrique': '/images/questions/bg_afrique.png',
-  'youtube': '/images/questions/bg_youtube.png',
-  'mode': '/images/questions/bg_mode.png',
-  'celebrites': '/images/questions/bg_celebrites.png',
+  'rap': getAssetPath('/images/questions/bg_rap.png'),
+  'football': getAssetPath('/images/questions/bg_football.png'),
+  'football-africain': getAssetPath('/images/questions/bg_football.png'),
+  'manga': getAssetPath('/images/questions/bg_manga.png'),
+  'netflix': getAssetPath('/images/questions/bg_netflix.png'),
+  'crypto': getAssetPath('/images/questions/bg_crypto.png'),
+  'kpop': getAssetPath('/images/questions/bg_kpop.png'),
+  'afrobeats': getAssetPath('/images/questions/bg_afrobeats.png'),
+  'nba': getAssetPath('/images/questions/bg_nba.png'),
+  'marvel': getAssetPath('/images/questions/bg_marvel.png'),
+  'gaming': getAssetPath('/images/questions/bg_gaming.png'),
+  'gaming-pro': getAssetPath('/images/questions/bg_gaming.png'),
+  'tiktok': getAssetPath('/images/questions/bg_tiktok.png'),
+  'afrique': getAssetPath('/images/questions/bg_afrique.png'),
+  'youtube': getAssetPath('/images/questions/bg_youtube.png'),
+  'mode': getAssetPath('/images/questions/bg_mode.png'),
+  'celebrites': getAssetPath('/images/questions/bg_celebrites.png'),
 };
 
 export default function QuizGame() {
@@ -126,11 +128,15 @@ export default function QuizGame() {
     const isCorrect = answerIndex === currentQuestion?.correct;
 
     if (isCorrect) {
-      const timeBonus = Math.floor(timeLeft * 10);
-      const comboMultiplier = combo;
-      const totalPoints = Math.floor((currentQuestion.points + timeBonus) * comboMultiplier);
+      // Nouveau système de scoring style QuizUp (max ~20 points par question)
+      const scoreResult = calculateAnswerScore(
+        true,
+        currentQuestion.difficulty,
+        timeLeft,
+        streak + 1
+      );
       
-      setScore((prev) => prev + totalPoints);
+      setScore((prev) => prev + scoreResult.totalPoints);
       setCorrectCount((prev) => prev + 1);
       setStreak((prev) => prev + 1);
       setCombo((prev) => Math.min(prev + 0.5, 3));
@@ -219,7 +225,7 @@ export default function QuizGame() {
             <div className="absolute inset-0 rounded-full border-4 border-violet-500/30 animate-ping" />
             <div className="absolute inset-0 rounded-full border-4 border-t-violet-500 border-r-fuchsia-500 border-b-cyan-500 border-l-transparent animate-spin" />
             <img 
-              src="/images/logo/Logo_Principal_Neon.png" 
+              src={getAssetPath('/images/logo/Logo_Principal_Neon.png')} 
               alt="Loading"
               className="absolute inset-2 w-16 h-16 sm:w-20 sm:h-20 object-contain"
             />

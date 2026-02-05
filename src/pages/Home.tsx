@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { getAssetPath } from "@/lib/assets";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link, useNavigate } from "react-router-dom";
@@ -40,50 +41,50 @@ const scaleIn = {
 // TOUTES les 21 Catégories avec les vrais assets
 const categories = [
   // CATÉGORIES TENDANCE - Les plus populaires en premier
-  { id: 'rap', name: 'Rap', image: '/images/categories/Cat_Rap.png', color: 'from-yellow-500 to-amber-600', questions: 30, hot: true },
-  { id: 'tiktok', name: 'TikTok', image: '/images/categories/Cat_TikTok.png', color: 'from-pink-500 to-cyan-500', questions: 25, hot: true },
-  { id: 'kpop', name: 'K-Pop', image: '/images/categories/Cat_Kpop.png', color: 'from-pink-400 to-purple-600', questions: 25, hot: true },
-  { id: 'footballafricain', name: 'Foot Africain', image: '/images/categories/Cat_FootballAfricain.png', color: 'from-green-500 to-yellow-500', questions: 25, hot: true },
-  { id: 'gamingpro', name: 'Gaming', image: '/images/categories/Cat_GamingPro.png', color: 'from-green-400 to-purple-600', questions: 25, hot: true },
-  { id: 'youtube', name: 'YouTube', image: '/images/categories/Cat_Youtube.png', color: 'from-red-500 to-red-700', questions: 25, hot: true },
-  { id: 'mode', name: 'Mode', image: '/images/categories/Cat_Mode.png', color: 'from-yellow-400 to-amber-600', questions: 25, hot: true },
-  { id: 'afrique', name: 'Afrique', image: '/images/categories/Cat_Afrique.png', color: 'from-green-500 to-yellow-500', questions: 25, hot: true },
-  { id: 'afrobeats', name: 'Afrobeats', image: '/images/categories/Cat_Afrobeats.png', color: 'from-orange-500 to-purple-600', questions: 25, hot: true },
-  { id: 'nba', name: 'NBA', image: '/images/categories/Cat_NBA.png', color: 'from-orange-500 to-blue-600', questions: 25, hot: true },
-  { id: 'manga', name: 'Manga', image: '/images/categories/Cat_Manga.png', color: 'from-pink-500 to-cyan-500', questions: 25, hot: true },
-  { id: 'marvel', name: 'Marvel', image: '/images/categories/Cat_Marvel.png', color: 'from-red-500 to-blue-600', questions: 25, hot: true },
-  { id: 'netflix', name: 'Netflix', image: '/images/categories/Cat_Netflix.png', color: 'from-red-600 to-red-800', questions: 25, hot: true },
-  { id: 'celebrites', name: 'Célébrités', image: '/images/categories/Cat_Celebrites.png', color: 'from-purple-500 to-pink-600', questions: 25, hot: true },
-  { id: 'crypto', name: 'Crypto', image: '/images/categories/Cat_Crypto.png', color: 'from-yellow-500 to-orange-600', questions: 25, hot: true },
+  { id: 'rap', name: 'Rap', image: getAssetPath('/images/categories/Cat_Rap.png'), color: 'from-yellow-500 to-amber-600', questions: 30, hot: true },
+  { id: 'tiktok', name: 'TikTok', image: getAssetPath('/images/categories/Cat_TikTok.png'), color: 'from-pink-500 to-cyan-500', questions: 25, hot: true },
+  { id: 'kpop', name: 'K-Pop', image: getAssetPath('/images/categories/Cat_Kpop.png'), color: 'from-pink-400 to-purple-600', questions: 25, hot: true },
+  { id: 'footballafricain', name: 'Foot Africain', image: getAssetPath('/images/categories/Cat_FootballAfricain.png'), color: 'from-green-500 to-yellow-500', questions: 25, hot: true },
+  { id: 'gamingpro', name: 'Gaming', image: getAssetPath('/images/categories/Cat_GamingPro.png'), color: 'from-green-400 to-purple-600', questions: 25, hot: true },
+  { id: 'youtube', name: 'YouTube', image: getAssetPath('/images/categories/Cat_Youtube.png'), color: 'from-red-500 to-red-700', questions: 25, hot: true },
+  { id: 'mode', name: 'Mode', image: getAssetPath('/images/categories/Cat_Mode.png'), color: 'from-yellow-400 to-amber-600', questions: 25, hot: true },
+  { id: 'afrique', name: 'Afrique', image: getAssetPath('/images/categories/Cat_Afrique.png'), color: 'from-green-500 to-yellow-500', questions: 25, hot: true },
+  { id: 'afrobeats', name: 'Afrobeats', image: getAssetPath('/images/categories/Cat_Afrobeats.png'), color: 'from-orange-500 to-purple-600', questions: 25, hot: true },
+  { id: 'nba', name: 'NBA', image: getAssetPath('/images/categories/Cat_NBA.png'), color: 'from-orange-500 to-blue-600', questions: 25, hot: true },
+  { id: 'manga', name: 'Manga', image: getAssetPath('/images/categories/Cat_Manga.png'), color: 'from-pink-500 to-cyan-500', questions: 25, hot: true },
+  { id: 'marvel', name: 'Marvel', image: getAssetPath('/images/categories/Cat_Marvel.png'), color: 'from-red-500 to-blue-600', questions: 25, hot: true },
+  { id: 'netflix', name: 'Netflix', image: getAssetPath('/images/categories/Cat_Netflix.png'), color: 'from-red-600 to-red-800', questions: 25, hot: true },
+  { id: 'celebrites', name: 'Célébrités', image: getAssetPath('/images/categories/Cat_Celebrites.png'), color: 'from-purple-500 to-pink-600', questions: 25, hot: true },
+  { id: 'crypto', name: 'Crypto', image: getAssetPath('/images/categories/Cat_Crypto.png'), color: 'from-yellow-500 to-orange-600', questions: 25, hot: true },
   // CATÉGORIES CLASSIQUES
-  { id: 'sport', name: 'Sport', image: '/images/categories/Cat_Sport.png', color: 'from-green-500 to-emerald-600', questions: 10 },
-  { id: 'science', name: 'Science', image: '/images/categories/Cat_Science.png', color: 'from-blue-500 to-cyan-600', questions: 10 },
-  { id: 'culture', name: 'Culture', image: '/images/categories/Cat_Culture.png', color: 'from-purple-500 to-violet-600', questions: 10 },
-  { id: 'tech', name: 'Tech', image: '/images/categories/Cat_Tech.png', color: 'from-cyan-500 to-blue-600', questions: 10 },
-  { id: 'cinema', name: 'Cinéma', image: '/images/categories/Cat_Cinema.png', color: 'from-red-500 to-rose-600', questions: 10 },
-  { id: 'musique', name: 'Musique', image: '/images/categories/Cat_Musique.png', color: 'from-pink-500 to-fuchsia-600', questions: 10 },
-  { id: 'geographie', name: 'Géographie', image: '/images/categories/Cat_Geographie.png', color: 'from-teal-500 to-green-600', questions: 10 },
-  { id: 'histoire', name: 'Histoire', image: '/images/categories/Cat_Histoire.png', color: 'from-amber-500 to-orange-600', questions: 10 },
-  { id: 'football', name: 'Football', image: '/images/categories/Cat_Football.png', color: 'from-green-600 to-emerald-700', questions: 10 },
-  { id: 'jeux_video', name: 'Jeux Vidéo', image: '/images/categories/Cat_Jeux_Video.png', color: 'from-indigo-500 to-violet-600', questions: 10 },
+  { id: 'sport', name: 'Sport', image: getAssetPath('/images/categories/Cat_Sport.png'), color: 'from-green-500 to-emerald-600', questions: 10 },
+  { id: 'science', name: 'Science', image: getAssetPath('/images/categories/Cat_Science.png'), color: 'from-blue-500 to-cyan-600', questions: 10 },
+  { id: 'culture', name: 'Culture', image: getAssetPath('/images/categories/Cat_Culture.png'), color: 'from-purple-500 to-violet-600', questions: 10 },
+  { id: 'tech', name: 'Tech', image: getAssetPath('/images/categories/Cat_Tech.png'), color: 'from-cyan-500 to-blue-600', questions: 10 },
+  { id: 'cinema', name: 'Cinéma', image: getAssetPath('/images/categories/Cat_Cinema.png'), color: 'from-red-500 to-rose-600', questions: 10 },
+  { id: 'musique', name: 'Musique', image: getAssetPath('/images/categories/Cat_Musique.png'), color: 'from-pink-500 to-fuchsia-600', questions: 10 },
+  { id: 'geographie', name: 'Géographie', image: getAssetPath('/images/categories/Cat_Geographie.png'), color: 'from-teal-500 to-green-600', questions: 10 },
+  { id: 'histoire', name: 'Histoire', image: getAssetPath('/images/categories/Cat_Histoire.png'), color: 'from-amber-500 to-orange-600', questions: 10 },
+  { id: 'football', name: 'Football', image: getAssetPath('/images/categories/Cat_Football.png'), color: 'from-green-600 to-emerald-700', questions: 10 },
+  { id: 'jeux_video', name: 'Jeux Vidéo', image: getAssetPath('/images/categories/Cat_Jeux_Video.png'), color: 'from-indigo-500 to-violet-600', questions: 10 },
 ];
 
 // 4 Achievements avec les vrais assets
 const achievements = [
-  { id: 'premiere_victoire', name: 'Première Victoire', image: '/images/achievements/Achiev_Premiere_Victoire.png', description: 'Gagne ta première partie', unlocked: true },
-  { id: '10_victoires', name: '10 Victoires', image: '/images/achievements/Achiev_10_Victoires.png', description: 'Gagne 10 parties', unlocked: false },
-  { id: '100_questions', name: '100 Questions', image: '/images/achievements/Achiev_100_Questions.png', description: 'Réponds à 100 questions', unlocked: false },
-  { id: 'serie_parfaite', name: 'Série Parfaite', image: '/images/achievements/Achiev_Serie_Parfaite.png', description: '10 bonnes réponses consécutives', unlocked: false },
+  { id: 'premiere_victoire', name: 'Première Victoire', image: getAssetPath('/images/achievements/Achiev_Premiere_Victoire.png'), description: 'Gagne ta première partie', unlocked: true },
+  { id: '10_victoires', name: '10 Victoires', image: getAssetPath('/images/achievements/Achiev_10_Victoires.png'), description: 'Gagne 10 parties', unlocked: false },
+  { id: '100_questions', name: '100 Questions', image: getAssetPath('/images/achievements/Achiev_100_Questions.png'), description: 'Réponds à 100 questions', unlocked: false },
+  { id: 'serie_parfaite', name: 'Série Parfaite', image: getAssetPath('/images/achievements/Achiev_Serie_Parfaite.png'), description: '10 bonnes réponses consécutives', unlocked: false },
 ];
 
 // Badges de ligues avec les vrais assets
 const leagues = [
-  { name: 'Bronze', image: '/images/badges/Badge_Bronze.png' },
-  { name: 'Argent', image: '/images/badges/Badge_Argent.png' },
-  { name: 'Or', image: '/images/badges/Badge_Or.png' },
-  { name: 'Platine', image: '/images/badges/Badge_Platine.png' },
-  { name: 'Diamant', image: '/images/badges/Badge_Diamant.png' },
-  { name: 'Légende', image: '/images/badges/Badge_Legende.png' },
+  { name: 'Bronze', image: getAssetPath('/images/badges/Badge_Bronze.png') },
+  { name: 'Argent', image: getAssetPath('/images/badges/Badge_Argent.png') },
+  { name: 'Or', image: getAssetPath('/images/badges/Badge_Or.png') },
+  { name: 'Platine', image: getAssetPath('/images/badges/Badge_Platine.png') },
+  { name: 'Diamant', image: getAssetPath('/images/badges/Badge_Diamant.png') },
+  { name: 'Légende', image: getAssetPath('/images/badges/Badge_Legende.png') },
 ];
 
 // Navbar Component
@@ -105,7 +106,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
           <img 
-            src="/images/logo/Icone_App_Dark.png" 
+            src={getAssetPath('/images/logo/Icone_App_Dark.png')} 
             alt="QQUIZ PRODIGY" 
             className="w-12 h-12 rounded-xl object-cover shadow-lg shadow-purple-500/30"
           />
@@ -266,7 +267,7 @@ const Hero = () => {
                 <div className="absolute inset-0 rounded-full border-4 border-violet-500/30 animate-ping" />
                 <div className="absolute inset-0 rounded-full border-4 border-t-violet-500 border-r-fuchsia-500 border-b-cyan-500 border-l-transparent animate-spin" />
                 <img 
-                  src="/images/logo/Logo_Principal_Neon.png" 
+                  src={getAssetPath('/images/logo/Logo_Principal_Neon.png')} 
                   alt="Loading"
                   className="absolute inset-4 w-24 h-24 object-contain"
                 />
@@ -573,6 +574,128 @@ const CTASection = () => {
   );
 };
 
+// Download App Section
+const DownloadAppSection = () => {
+  return (
+    <section className="py-16 bg-gradient-to-r from-violet-900 via-purple-900 to-fuchsia-900 relative overflow-hidden">
+      {/* Background effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-violet-800/20 to-fuchsia-800/20 opacity-30" />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+          className="flex flex-col lg:flex-row items-center justify-between gap-10"
+        >
+          {/* Text Content */}
+          <motion.div variants={fadeInUp} className="text-center lg:text-left max-w-xl">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full mb-6">
+              <span className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+              </span>
+              <span className="text-white/80 text-sm font-medium">Disponible maintenant</span>
+            </div>
+            
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Télécharge l'App <span className="text-transparent bg-gradient-to-r from-cyan-400 to-fuchsia-400 bg-clip-text">QQUIZ PRODIGY</span>
+            </h2>
+            
+            <p className="text-lg text-white/70 mb-8">
+              Joue partout, même hors ligne ! Défie tes amis, grimpe les classements et deviens une légende du quiz.
+            </p>
+            
+            {/* Download Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a 
+                href="#" 
+                className="flex items-center gap-3 bg-black hover:bg-black/80 text-white px-6 py-4 rounded-xl transition-all hover:scale-105 shadow-xl"
+              >
+                <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                </svg>
+                <div className="text-left">
+                  <div className="text-xs text-white/60">Télécharger sur</div>
+                  <div className="text-lg font-semibold">App Store</div>
+                </div>
+              </a>
+              
+              <a 
+                href="#" 
+                className="flex items-center gap-3 bg-black hover:bg-black/80 text-white px-6 py-4 rounded-xl transition-all hover:scale-105 shadow-xl"
+              >
+                <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/>
+                </svg>
+                <div className="text-left">
+                  <div className="text-xs text-white/60">Disponible sur</div>
+                  <div className="text-lg font-semibold">Google Play</div>
+                </div>
+              </a>
+            </div>
+          </motion.div>
+          
+          {/* Phone Mockup */}
+          <motion.div 
+            variants={scaleIn}
+            className="relative"
+          >
+            <div className="relative w-64 h-[500px] bg-gradient-to-br from-slate-800 to-slate-900 rounded-[3rem] p-3 shadow-2xl border border-white/10">
+              {/* Phone notch */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-black rounded-b-2xl z-10" />
+              
+              {/* Screen */}
+              <div className="w-full h-full bg-gradient-to-br from-violet-600 via-purple-600 to-fuchsia-600 rounded-[2.5rem] overflow-hidden relative">
+                {/* App content preview */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
+                  <img 
+                    src={getAssetPath('/images/logo/Logo_Principal_Neon.png')} 
+                    alt="QQUIZ PRODIGY"
+                    className="w-24 h-24 mb-4"
+                  />
+                  <h3 className="text-white text-xl font-bold mb-2">QQUIZ PRODIGY</h3>
+                  <p className="text-white/70 text-sm text-center mb-6">Le quiz qui te rend accro</p>
+                  
+                  {/* Stats preview */}
+                  <div className="grid grid-cols-2 gap-3 w-full">
+                    <div className="bg-white/10 backdrop-blur rounded-xl p-3 text-center">
+                      <div className="text-2xl font-bold text-white">50K+</div>
+                      <div className="text-xs text-white/60">Joueurs</div>
+                    </div>
+                    <div className="bg-white/10 backdrop-blur rounded-xl p-3 text-center">
+                      <div className="text-2xl font-bold text-white">1M+</div>
+                      <div className="text-xs text-white/60">Parties</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Floating elements */}
+            <motion.div 
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 3, repeat: Infinity }}
+              className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-xl"
+            >
+              <Trophy className="w-8 h-8 text-white" />
+            </motion.div>
+            
+            <motion.div 
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 2.5, repeat: Infinity }}
+              className="absolute -bottom-4 -left-4 w-14 h-14 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl flex items-center justify-center shadow-xl"
+            >
+              <Zap className="w-7 h-7 text-white" />
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
 // Footer
 const Footer = () => {
   return (
@@ -581,7 +704,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
             <img 
-              src="/images/logo/Icone_App_Dark.png" 
+              src={getAssetPath('/images/logo/Icone_App_Dark.png')} 
               alt="QQUIZ" 
               className="w-10 h-10 rounded-lg opacity-80"
             />
@@ -612,6 +735,7 @@ export default function Home() {
       <Features />
       <LeaderboardPreview />
       <CTASection />
+      <DownloadAppSection />
       <Footer />
     </div>
   );

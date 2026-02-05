@@ -7,15 +7,21 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
-import { initProtection } from './lib/protection';
 
-// Initialiser les protections en production
-if (import.meta.env.PROD) {
-  initProtection();
+// Désactiver temporairement la protection pour le debug
+// import { initProtection } from './lib/protection';
+// if (import.meta.env.PROD) {
+//   initProtection();
+// }
+
+const rootElement = document.getElementById('root');
+
+if (rootElement) {
+  ReactDOM.createRoot(rootElement).render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
+} else {
+  console.error('Root element not found');
 }
-
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);

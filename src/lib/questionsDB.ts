@@ -45,6 +45,11 @@ export const QUESTIONS_DB: Question[] = [
   { id: 2028, category: 'Rap', categoryId: 'rap', question: "Qui est Travis Scott ?", answers: ["Rappeur français", "Rappeur américain", "Rappeur britannique", "Rappeur canadien"], correct: 1, difficulty: 'easy', points: 100 },
   { id: 2029, category: 'Rap', categoryId: 'rap', question: "Quel est le vrai nom de 50 Cent ?", answers: ["Curtis Jackson", "Shawn Carter", "Marshall Mathers", "Andre Young"], correct: 0, difficulty: 'medium', points: 150 },
   { id: 2030, category: 'Rap', categoryId: 'rap', question: "Qui a rappé 'Bruxelles Vie' ?", answers: ["Stromae", "Damso", "Roméo Elvis", "Hamza"], correct: 1, difficulty: 'easy', points: 100 },
+  { id: 2031, category: 'Rap', categoryId: 'rap', question: "Quel rappeur est surnommé 'Refe' ?", answers: ["SCH", "Ninho", "Booba", "Nekfeu"], correct: 1, difficulty: 'medium', points: 150 },
+  { id: 2032, category: 'Rap', categoryId: 'rap', question: "Qui a sorti l'album 'Ni' ?", answers: ["Ninho", "Nekfeu", "Damso", "Jul"], correct: 0, difficulty: 'easy', points: 100 },
+  { id: 2033, category: 'Rap', categoryId: 'rap', question: "Quel est le surnom de Ninho ?", answers: ["Le Duc", "Refe", "Le S", "Le Boss"], correct: 1, difficulty: 'easy', points: 100 },
+  { id: 2034, category: 'Rap', categoryId: 'rap', question: "De quelle ville vient Ninho ?", answers: ["Marseille", "Paris", "Lyon", "Lille"], correct: 1, difficulty: 'easy', points: 100 },
+  { id: 2035, category: 'Rap', categoryId: 'rap', question: "Quel rappeur a sorti 'M.I.L.S 3' ?", answers: ["Booba", "Ninho", "Jul", "SCH"], correct: 1, difficulty: 'medium', points: 150 },
 
   // ==================== TIKTOK ====================
   { id: 2101, category: 'TikTok', categoryId: 'tiktok', question: "Quel est le TikTokeur le plus suivi au monde ?", answers: ["Addison Rae", "Charli D'Amelio", "Khaby Lame", "Bella Poarch"], correct: 2, difficulty: 'easy', points: 100 },

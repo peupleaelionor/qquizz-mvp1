@@ -11,7 +11,8 @@ import viteCompression from "vite-plugin-compression";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
+  base: command === 'serve' ? '/' : '/qquizz-mvp1/',
   plugins: [
     react(),
     // Compression gzip pour des fichiers plus légers
@@ -75,4 +76,4 @@ export default defineConfig({
   optimizeDeps: {
     include: ['react', 'react-dom', 'framer-motion', 'gsap'],
   },
-});
+}));

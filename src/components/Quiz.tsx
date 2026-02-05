@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { getAssetPath } from '@/lib/assets';
 
 // Base de questions QQUIZ PRODIGY
 const QUESTIONS_DB = [
@@ -209,7 +210,7 @@ export default function Quiz({
             className="w-40 h-40 mx-auto mb-8 rounded-2xl overflow-hidden"
           >
             <img 
-              src="/images/Logo_Principal_Neon.png" 
+              src={getAssetPath('/images/logo/Logo_Principal_Neon.png')} 
               alt="QQUIZ PRODIGY" 
               className="w-full h-full object-cover"
             />
