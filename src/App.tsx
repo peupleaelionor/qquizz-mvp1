@@ -6,7 +6,7 @@ import Chat from "./components/Chat";
 import Friends from "./components/Friends";
 import Duel from "./components/Duel";
 import QuizGame from "./components/QuizGame";
-import Leaderboard from "./components/Leaderboard";
+import LeaderboardPage from "./components/LeaderboardPage";
 import ProfilePage from "./pages/ProfilePage";
 import GameMode from "./pages/GameMode";
 
@@ -23,7 +23,7 @@ function App() {
             <Route path="/play" element={<QuizGame />} />
             <Route path="/quiz" element={<QuizGame />} />
             <Route path="/game-mode" element={<GameMode />} />
-            <Route path="/leaderboard" element={<Leaderboard />} />
+            <Route path="/leaderboard" element={<LeaderboardPage />} />
             <Route path="/profile" element={<ProfilePage />} />
           </Routes>
         </BrowserRouter>
