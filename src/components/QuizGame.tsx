@@ -53,8 +53,8 @@ export default function QuizGame() {
 
     // Charger les questions
     const loadedQuestions = category 
-      ? getQuestionsByCategory(category, questionsCount)
-      : getRandomQuestions(questionsCount);
+      ? getRandomQuestions(category, questionsCount)
+      : getRandomQuestions('sport', questionsCount);
     
     setQuestions(loadedQuestions);
     setTimeLeft(timePerQuestion);
@@ -326,8 +326,8 @@ export default function QuizGame() {
                 setSelectedAnswer(null);
                 setShowFeedback(false);
                 const newQuestions = category 
-                  ? getQuestionsByCategory(category, questionsCount)
-                  : getRandomQuestions(questionsCount);
+                  ? getRandomQuestions(category, questionsCount)
+                  : getRandomQuestions('sport', questionsCount);
                 setQuestions(newQuestions);
                 setTimeLeft(timePerQuestion);
                 setTimeout(() => setGameState('playing'), 500);

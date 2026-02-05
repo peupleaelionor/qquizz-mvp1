@@ -1,0 +1,42 @@
+{
+  "rap": {
+    "name": "Rap",
+    "questions": []
+  },
+  "tiktok": {
+    "name": "TikTok",
+    "questions": []
+  },
+  "celebrites": {
+    "name": "Célébrités",
+    "questions": []
+  },
+  "afrique": {
+    "name": "Afrique",
+    "questions": []
+  },
+  "crypto": {
+    "name": "Crypto",
+    "questions": []
+  },
+  "afrobeats": {
+    "name": "Afrobeats",
+    "questions": []
+  },
+  "netflix": {
+    "name": "Netflix",
+    "questions": []
+  },
+  "nba": {
+    "name": "NBA",
+    "questions": []
+  },
+  "manga": {
+    "name": "Manga",
+    "questions": []
+  },
+  "marvel": {
+    "name": "Marvel",
+    "questions": []
+  }
+}

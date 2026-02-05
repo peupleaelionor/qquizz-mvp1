@@ -39,26 +39,28 @@ const scaleIn = {
 
 // TOUTES les 21 Catégories avec les vrais assets
 const categories = [
-  { id: 'sport', name: 'Sport', image: '/images/categories/Cat_Sport.png', color: 'from-green-500 to-emerald-600', questions: 150 },
-  { id: 'science', name: 'Science', image: '/images/categories/Cat_Science.png', color: 'from-blue-500 to-cyan-600', questions: 120 },
-  { id: 'culture', name: 'Culture', image: '/images/categories/Cat_Culture.png', color: 'from-purple-500 to-violet-600', questions: 200 },
-  { id: 'tech', name: 'Tech', image: '/images/categories/Cat_Tech.png', color: 'from-cyan-500 to-blue-600', questions: 100 },
-  { id: 'cinema', name: 'Cinéma', image: '/images/categories/Cat_Cinema.png', color: 'from-red-500 to-rose-600', questions: 180 },
-  { id: 'musique', name: 'Musique', image: '/images/categories/Cat_Musique.png', color: 'from-pink-500 to-fuchsia-600', questions: 160 },
-  { id: 'geographie', name: 'Géographie', image: '/images/categories/Cat_Geographie.png', color: 'from-teal-500 to-green-600', questions: 140 },
-  { id: 'histoire', name: 'Histoire', image: '/images/categories/Cat_Histoire.png', color: 'from-amber-500 to-orange-600', questions: 170 },
-  { id: 'gastronomie', name: 'Gastronomie', image: '/images/categories/Cat_Gastronomie.png', color: 'from-orange-500 to-red-600', questions: 90 },
-  { id: 'art', name: 'Art', image: '/images/categories/Cat_Art.png', color: 'from-fuchsia-500 to-purple-600', questions: 110 },
-  { id: 'jeux_video', name: 'Jeux Vidéo', image: '/images/categories/Cat_Jeux_Video.png', color: 'from-indigo-500 to-violet-600', questions: 130 },
-  { id: 'series_tv', name: 'Séries TV', image: '/images/categories/Cat_Series_TV.png', color: 'from-rose-500 to-pink-600', questions: 150 },
-  { id: 'biologie', name: 'Biologie', image: '/images/categories/Cat_Biologie.png', color: 'from-lime-500 to-green-600', questions: 100 },
-  { id: 'astronomie', name: 'Astronomie', image: '/images/categories/Cat_Astronomie.png', color: 'from-slate-500 to-indigo-600', questions: 80 },
-  { id: 'economie', name: 'Économie', image: '/images/categories/Cat_Economie.png', color: 'from-emerald-500 to-teal-600', questions: 70 },
-  { id: 'football', name: 'Football', image: '/images/categories/Cat_Football.png', color: 'from-green-600 to-emerald-700', questions: 200 },
-  { id: 'basketball', name: 'Basketball', image: '/images/categories/Cat_Basketball.png', color: 'from-orange-600 to-amber-700', questions: 90 },
-  { id: 'theatre', name: 'Théâtre', image: '/images/categories/Cat_Theatre.png', color: 'from-red-600 to-rose-700', questions: 60 },
-  { id: 'divertissement', name: 'Divertissement', image: '/images/categories/Cat_Divertissement.png', color: 'from-yellow-500 to-amber-600', questions: 120 },
-  { id: 'animaux', name: 'Animaux', image: '/images/categories/Cat_Animaux.png', color: 'from-amber-600 to-yellow-700', questions: 110 },
+  // CATÉGORIES TENDANCE - Les plus populaires en premier
+  { id: 'rap', name: 'Rap', image: '/images/categories/Cat_Rap.png', color: 'from-yellow-500 to-amber-600', questions: 30, hot: true },
+  { id: 'tiktok', name: 'TikTok', image: '/images/categories/Cat_TikTok.png', color: 'from-pink-500 to-cyan-500', questions: 25, hot: true },
+  { id: 'afrique', name: 'Afrique', image: '/images/categories/Cat_Afrique.png', color: 'from-green-500 to-yellow-500', questions: 25, hot: true },
+  { id: 'afrobeats', name: 'Afrobeats', image: '/images/categories/Cat_Afrobeats.png', color: 'from-orange-500 to-purple-600', questions: 25, hot: true },
+  { id: 'nba', name: 'NBA', image: '/images/categories/Cat_NBA.png', color: 'from-orange-500 to-blue-600', questions: 25, hot: true },
+  { id: 'manga', name: 'Manga', image: '/images/categories/Cat_Manga.png', color: 'from-pink-500 to-cyan-500', questions: 25, hot: true },
+  { id: 'marvel', name: 'Marvel', image: '/images/categories/Cat_Marvel.png', color: 'from-red-500 to-blue-600', questions: 25, hot: true },
+  { id: 'netflix', name: 'Netflix', image: '/images/categories/Cat_Netflix.png', color: 'from-red-600 to-red-800', questions: 25, hot: true },
+  { id: 'celebrites', name: 'Célébrités', image: '/images/categories/Cat_Celebrites.png', color: 'from-purple-500 to-pink-600', questions: 25, hot: true },
+  { id: 'crypto', name: 'Crypto', image: '/images/categories/Cat_Crypto.png', color: 'from-yellow-500 to-orange-600', questions: 25, hot: true },
+  // CATÉGORIES CLASSIQUES
+  { id: 'sport', name: 'Sport', image: '/images/categories/Cat_Sport.png', color: 'from-green-500 to-emerald-600', questions: 10 },
+  { id: 'science', name: 'Science', image: '/images/categories/Cat_Science.png', color: 'from-blue-500 to-cyan-600', questions: 10 },
+  { id: 'culture', name: 'Culture', image: '/images/categories/Cat_Culture.png', color: 'from-purple-500 to-violet-600', questions: 10 },
+  { id: 'tech', name: 'Tech', image: '/images/categories/Cat_Tech.png', color: 'from-cyan-500 to-blue-600', questions: 10 },
+  { id: 'cinema', name: 'Cinéma', image: '/images/categories/Cat_Cinema.png', color: 'from-red-500 to-rose-600', questions: 10 },
+  { id: 'musique', name: 'Musique', image: '/images/categories/Cat_Musique.png', color: 'from-pink-500 to-fuchsia-600', questions: 10 },
+  { id: 'geographie', name: 'Géographie', image: '/images/categories/Cat_Geographie.png', color: 'from-teal-500 to-green-600', questions: 10 },
+  { id: 'histoire', name: 'Histoire', image: '/images/categories/Cat_Histoire.png', color: 'from-amber-500 to-orange-600', questions: 10 },
+  { id: 'football', name: 'Football', image: '/images/categories/Cat_Football.png', color: 'from-green-600 to-emerald-700', questions: 10 },
+  { id: 'jeux_video', name: 'Jeux Vidéo', image: '/images/categories/Cat_Jeux_Video.png', color: 'from-indigo-500 to-violet-600', questions: 10 },
 ];
 
 // 4 Achievements avec les vrais assets
@@ -214,6 +216,14 @@ const Hero = () => {
                 onClick={() => handleCategoryClick(category.id, category.name)}
                 className="group relative aspect-square rounded-2xl overflow-hidden bg-gray-800 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-violet-500/20"
               >
+                {/* Badge HOT pour les catégories tendance */}
+                {(category as any).hot && (
+                  <div className="absolute top-1 right-1 z-20 px-1.5 py-0.5 bg-gradient-to-r from-orange-500 to-red-500 rounded-full">
+                    <span className="text-[8px] font-bold text-white flex items-center gap-0.5">
+                      <Flame className="w-2 h-2" /> HOT
+                    </span>
+                  </div>
+                )}
                 <img 
                   src={category.image} 
                   alt={category.name}
