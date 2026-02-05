@@ -12,7 +12,8 @@ import viteCompression from "vite-plugin-compression";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig(({ command }) => ({
-  base: command === 'serve' ? '/' : '/qquizz-mvp1/',
+  // Base URL: '/' pour Vercel, '/qquizz-mvp1/' pour GitHub Pages
+  base: process.env.VERCEL ? '/' : (command === 'serve' ? '/' : '/qquizz-mvp1/'),
   plugins: [
     react(),
     // Compression gzip pour des fichiers plus légers
