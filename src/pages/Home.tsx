@@ -42,6 +42,11 @@ const categories = [
   // CATÉGORIES TENDANCE - Les plus populaires en premier
   { id: 'rap', name: 'Rap', image: '/images/categories/Cat_Rap.png', color: 'from-yellow-500 to-amber-600', questions: 30, hot: true },
   { id: 'tiktok', name: 'TikTok', image: '/images/categories/Cat_TikTok.png', color: 'from-pink-500 to-cyan-500', questions: 25, hot: true },
+  { id: 'kpop', name: 'K-Pop', image: '/images/categories/Cat_Kpop.png', color: 'from-pink-400 to-purple-600', questions: 25, hot: true },
+  { id: 'footballafricain', name: 'Foot Africain', image: '/images/categories/Cat_FootballAfricain.png', color: 'from-green-500 to-yellow-500', questions: 25, hot: true },
+  { id: 'gamingpro', name: 'Gaming', image: '/images/categories/Cat_GamingPro.png', color: 'from-green-400 to-purple-600', questions: 25, hot: true },
+  { id: 'youtube', name: 'YouTube', image: '/images/categories/Cat_Youtube.png', color: 'from-red-500 to-red-700', questions: 25, hot: true },
+  { id: 'mode', name: 'Mode', image: '/images/categories/Cat_Mode.png', color: 'from-yellow-400 to-amber-600', questions: 25, hot: true },
   { id: 'afrique', name: 'Afrique', image: '/images/categories/Cat_Afrique.png', color: 'from-green-500 to-yellow-500', questions: 25, hot: true },
   { id: 'afrobeats', name: 'Afrobeats', image: '/images/categories/Cat_Afrobeats.png', color: 'from-orange-500 to-purple-600', questions: 25, hot: true },
   { id: 'nba', name: 'NBA', image: '/images/categories/Cat_NBA.png', color: 'from-orange-500 to-blue-600', questions: 25, hot: true },
