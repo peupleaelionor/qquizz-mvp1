@@ -394,7 +394,13 @@ export function useShake<T extends HTMLElement>(): {
     if (!ref.current) return;
 
     gsap.to(ref.current, {
-      x: [-10, 10, -10, 10, 0],
+      keyframes: [
+        { x: -10 },
+        { x: 10 },
+        { x: -10 },
+        { x: 10 },
+        { x: 0 }
+      ],
       duration: 0.4,
       ease: 'power2.inOut',
     });
@@ -417,7 +423,12 @@ export function useBounce<T extends HTMLElement>(): {
       ref.current,
       { scale: 1 },
       {
-        scale: [1.2, 0.9, 1.1, 1],
+        keyframes: [
+          { scale: 1.2 },
+          { scale: 0.9 },
+          { scale: 1.1 },
+          { scale: 1 }
+        ],
         duration: 0.5,
         ease: 'power2.out',
       }
