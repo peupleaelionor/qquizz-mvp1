@@ -115,6 +115,10 @@ const Navbar = () => {
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
+          <Link to="/feed" className="text-white/70 hover:text-cyan-400 transition-colors font-medium flex items-center gap-1">
+            <Flame className="w-4 h-4 text-orange-500" />
+            Feed
+          </Link>
           <Link to="/leaderboard" className="text-white/70 hover:text-cyan-400 transition-colors font-medium">
             Classement
           </Link>

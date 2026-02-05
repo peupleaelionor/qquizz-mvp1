@@ -1,7 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Clock, Zap, Trophy, Target, Star, Home } from 'lucide-react';
+import { ArrowLeft, Clock, Zap, Trophy, Target, Star, Home, Share2, Flame } from 'lucide-react';
+import { feedService } from '@/lib/feedService';
+import { useAuth } from '@/contexts/AuthContext';
 import { Question, getQuestionsByCategory, getRandomQuestions } from '@/lib/questionsDB';
 import { 
   UserProfile, 
@@ -38,6 +40,8 @@ export default function QuizGame() {
   const [xpGained, setXpGained] = useState(0);
   const [levelUp, setLevelUp] = useState(false);
   const [startTime] = useState(Date.now());
+  const [shared, setShared] = useState(false);
+  const { user: authUser } = useAuth();
 
   const timePerQuestion = gameMode === 'solo' ? 20 : 15;
   const questionsCount = 10;
@@ -148,6 +152,22 @@ export default function QuizGame() {
     }
 
     setGameState('result');
+
+    // Partager automatiquement le resultat sur le feed
+    if (authUser) {
+      try {
+        feedService.postQuizResult(
+          authUser.id,
+          categoryName || category || 'General',
+          score,
+          isWin,
+          undefined,
+          undefined
+        );
+      } catch (error) {
+        console.error('Erreur partage resultat:', error);
+      }
+    }
   };
 
   const currentQuestion = questions[currentIndex];
@@ -340,9 +360,25 @@ export default function QuizGame() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => navigate('/')}
-              className="flex-1 px-6 py-4 bg-white/10 rounded-xl text-white font-bold border border-white/20"
+              className="px-6 py-4 bg-white/10 rounded-xl text-white font-bold border border-white/20"
             >
               <Home className="w-5 h-5 mx-auto" />
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                setShared(true);
+                const text = `J'ai obtenu ${score} points en ${categoryName || 'Quiz'} sur QQUIZ PRODIGY ! ${percentage}% de bonnes reponses. Tu peux faire mieux ?`;
+                if (navigator.share) {
+                  navigator.share({ title: 'QQUIZ PRODIGY', text, url: 'https://qquizz-mvp1.vercel.app' });
+                } else {
+                  navigator.clipboard.writeText(text + ' https://qquizz-mvp1.vercel.app');
+                }
+              }}
+              className={`px-6 py-4 rounded-xl text-white font-bold ${shared ? 'bg-green-500/20 border border-green-500/50' : 'bg-cyan-500/20 border border-cyan-500/50'}`}
+            >
+              <Share2 className="w-5 h-5 mx-auto" />
             </motion.button>
           </div>
         </motion.div>

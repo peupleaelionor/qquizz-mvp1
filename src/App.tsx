@@ -11,6 +11,7 @@ import LeaderboardPage from "./components/LeaderboardPage";
 import ProfilePage from "./pages/ProfilePage";
 import GameMode from "./pages/GameMode";
 import AuthPage from "./pages/AuthPage";
+import FeedPage from "./pages/FeedPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/auth" element={<AuthPage />} />
+              <Route path="/feed" element={<FeedPage />} />
               <Route path="/chat" element={<Chat />} />
               <Route path="/friends" element={<Friends />} />
               <Route path="/duel" element={<Duel />} />
