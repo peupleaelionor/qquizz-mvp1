@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import global styles */
+@import './styles/global.css';
+
 @layer base {
   :root {
     /* QQUIZ PRODIGY Cyber Theme */
