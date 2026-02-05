@@ -5,9 +5,10 @@ import Home from "./pages/Home";
 import Chat from "./components/Chat";
 import Friends from "./components/Friends";
 import Duel from "./components/Duel";
-import Quiz from "./components/Quiz";
+import QuizGame from "./components/QuizGame";
 import Leaderboard from "./components/Leaderboard";
-import Profile from "./components/Profile";
+import ProfilePage from "./pages/ProfilePage";
+import GameMode from "./pages/GameMode";
 
 function App() {
   return (
@@ -19,10 +20,11 @@ function App() {
             <Route path="/chat" element={<Chat />} />
             <Route path="/friends" element={<Friends />} />
             <Route path="/duel" element={<Duel />} />
-            <Route path="/play" element={<Quiz />} />
-            <Route path="/quiz" element={<Quiz />} />
+            <Route path="/play" element={<QuizGame />} />
+            <Route path="/quiz" element={<QuizGame />} />
+            <Route path="/game-mode" element={<GameMode />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile" element={<ProfilePage />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>

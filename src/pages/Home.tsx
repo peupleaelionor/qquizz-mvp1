@@ -140,11 +140,11 @@ const Hero = () => {
   const [showMatchmaking, setShowMatchmaking] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-  const handleCategoryClick = (categoryId: string) => {
+  const handleCategoryClick = (categoryId: string, categoryName: string) => {
     setSelectedCategory(categoryId);
     setShowMatchmaking(true);
     setTimeout(() => {
-      navigate('/play', { state: { category: categoryId } });
+      navigate('/play', { state: { category: categoryId, categoryName: categoryName } });
     }, 2000);
   };
 
@@ -211,7 +211,7 @@ const Hero = () => {
               <motion.button
                 key={category.id}
                 variants={scaleIn}
-                onClick={() => handleCategoryClick(category.id)}
+                onClick={() => handleCategoryClick(category.id, category.name)}
                 className="group relative aspect-square rounded-2xl overflow-hidden bg-gray-800 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-violet-500/20"
               >
                 <img 
