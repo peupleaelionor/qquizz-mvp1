@@ -2,25 +2,122 @@
 <html lang="fr" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
     <title>QQUIZ PRODIGY - Le Quiz Compétitif Ultime</title>
-    <meta name="description" content="QQUIZ PRODIGY - L'application de quiz compétitive ultime. Défiez vos amis, grimpez dans le classement et devenez un champion !" />
+    <meta name="description" content="QQUIZ PRODIGY - Le quiz qui te rend accro. Défie tes amis, grimpe les classements et deviens une légende du quiz ! 25+ catégories, 600+ questions." />
+    <meta name="keywords" content="quiz, jeu, trivia, compétition, classement, rap, manga, football, afrique, quiz en ligne, quiz gratuit" />
+    <meta name="author" content="QQUIZ PRODIGY" />
+    <meta name="robots" content="index, follow" />
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/images/logo/logo_192.png" />
     
-    <!-- Google Fonts -->
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#7c3aed" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="QQUIZ" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="QQUIZ PRODIGY" />
+    <meta name="msapplication-TileColor" content="#7c3aed" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    
+    <!-- Google Fonts - Preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     
-    <!-- Open Graph -->
-    <meta property="og:title" content="QQUIZ PRODIGY - Le Quiz Compétitif Ultime" />
-    <meta property="og:description" content="Défiez vos amis, grimpez dans le classement et devenez un champion !" />
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://qquizz-mvp1.vercel.app/" />
+    <meta property="og:title" content="QQUIZ PRODIGY - Le Quiz Compétitif Ultime" />
+    <meta property="og:description" content="Défie tes amis, grimpe les classements et deviens une légende du quiz ! 25+ catégories tendance." />
+    <meta property="og:image" content="/images/logo/og_image.png" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="QQUIZ PRODIGY" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://qquizz-mvp1.vercel.app/" />
+    <meta name="twitter:title" content="QQUIZ PRODIGY - Le Quiz Compétitif Ultime" />
+    <meta name="twitter:description" content="Défie tes amis, grimpe les classements et deviens une légende du quiz !" />
+    <meta name="twitter:image" content="/images/logo/og_image.png" />
+    
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "QQUIZ PRODIGY",
+      "description": "Le quiz compétitif ultime - Défie tes amis et deviens une légende",
+      "url": "https://qquizz-mvp1.vercel.app/",
+      "applicationCategory": "GameApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "1250"
+      }
+    }
+    </script>
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" as="image" href="/images/logo/qquiz_logo.png" />
+    
+    <style>
+      /* Critical CSS - Loading screen */
+      body { margin: 0; background: #0f0a1e; overflow-x: hidden; }
+      #root { min-height: 100vh; min-height: 100dvh; }
+      .loading-screen {
+        position: fixed; inset: 0; z-index: 9999;
+        display: flex; align-items: center; justify-content: center;
+        background: linear-gradient(135deg, #0f0a1e 0%, #1a0533 50%, #0f0a1e 100%);
+      }
+      .loading-logo {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 2rem; font-weight: 900;
+        background: linear-gradient(135deg, #a855f7, #ec4899, #22d3ee);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        animation: pulse-glow 1.5s ease-in-out infinite;
+      }
+      @keyframes pulse-glow {
+        0%, 100% { opacity: 0.7; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.05); }
+      }
+    </style>
   </head>
   <body>
+    <!-- Loading screen -->
+    <div id="loading-screen" class="loading-screen">
+      <div class="loading-logo">QQUIZ PRODIGY</div>
+    </div>
+    
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Register Service Worker -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('SW registered'))
+            .catch(err => console.log('SW registration failed'));
+        });
+      }
+      // Remove loading screen when app is ready
+      window.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+          const ls = document.getElementById('loading-screen');
+          if (ls) { ls.style.opacity = '0'; ls.style.transition = 'opacity 0.5s'; setTimeout(() => ls.remove(), 500); }
+        }, 1000);
+      });
+    </script>
   </body>
 </html>

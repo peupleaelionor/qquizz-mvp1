@@ -18,6 +18,7 @@ import {
   TrendingUp
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import BottomNav from "@/components/BottomNav";
 
 // Animation variants
 const fadeInUp = {
@@ -737,6 +738,7 @@ export default function Home() {
       <CTASection />
       <DownloadAppSection />
       <Footer />
+      <BottomNav />
     </div>
   );
 }

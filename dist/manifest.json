@@ -1,0 +1,29 @@
+{
+  "name": "QQUIZ PRODIGY",
+  "short_name": "QQUIZ",
+  "description": "Le quiz qui te rend accro - Défie tes amis, grimpe les classements et deviens une légende !",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f0a1e",
+  "theme_color": "#7c3aed",
+  "categories": ["games", "entertainment", "education"],
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "/images/logo/logo_192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/logo/logo_512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

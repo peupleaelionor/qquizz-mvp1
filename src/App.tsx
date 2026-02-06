@@ -23,6 +23,9 @@ const GameMode = lazy(() => import("./pages/GameMode"));
 const AuthPage = lazy(() => import("./pages/AuthPage"));
 const FeedPage = lazy(() => import("./pages/FeedPage"));
 const SettingsPage = lazy(() => import("./pages/SettingsPage"));
+const ChallengeSystem = lazy(() => import("./components/ChallengeSystem"));
+const Matchmaking = lazy(() => import("./components/Matchmaking"));
+const MessagesPage = lazy(() => import("./components/Chat"));
 
 // Loading component
 function LoadingScreen() {
@@ -87,6 +90,9 @@ function App() {
                 <Route path="/leaderboard" element={<LeaderboardPage />} />
                 <Route path="/profile" element={<ProfilePage />} />
                 <Route path="/settings" element={<SettingsPage />} />
+                <Route path="/challenges" element={<ChallengeSystem />} />
+                <Route path="/matchmaking" element={<Matchmaking mode="random" onCancel={() => window.history.back()} onMatchFound={(gameId, opponent) => console.log('Match found:', gameId, opponent)} />} />
+                <Route path="/messages" element={<MessagesPage />} />
               </Routes>
             </Suspense>
           </BrowserRouter>
