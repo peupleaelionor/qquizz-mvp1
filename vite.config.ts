@@ -30,24 +30,8 @@ export default defineConfig(({ command }) => ({
   build: {
     outDir: "dist",
     emptyOutDir: true,
-    // Obfuscation et minification avancée
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true, // Supprimer les console.log en production
-        drop_debugger: true,
-        pure_funcs: ['console.log', 'console.info', 'console.debug'],
-      },
-      mangle: {
-        safari10: true,
-        properties: {
-          regex: /^_/, // Obfusquer les propriétés commençant par _
-        },
-      },
-      format: {
-        comments: false, // Supprimer tous les commentaires
-      },
-    },
+    // Minification standard esbuild (plus fiable que terser)
+    minify: 'esbuild',
     // Code splitting pour de meilleures performances
     rollupOptions: {
       output: {
