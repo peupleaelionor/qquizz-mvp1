@@ -15,7 +15,8 @@ import {
   ChevronRight,
   Play,
   Award,
-  TrendingUp
+  TrendingUp,
+  ArrowRight
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import BottomNav from "@/components/BottomNav";
@@ -107,7 +108,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
           <img 
-            src={getAssetPath('/images/logo/Icone_App_Dark.png')} 
+            src={getAssetPath('/images/logo/Logo_Principal_Neon.png')} 
             alt="QQUIZ PRODIGY" 
             className="w-12 h-12 rounded-xl object-cover shadow-lg shadow-purple-500/30"
           />
@@ -578,9 +579,14 @@ const CTASection = () => {
 // Download App Section
 const DownloadAppSection = () => {
   return (
-    <section className="py-16 bg-gradient-to-r from-violet-900 via-purple-900 to-fuchsia-900 relative overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-violet-800/20 to-fuchsia-800/20 opacity-30" />
+    <section className="py-20 bg-black relative overflow-hidden">
+      {/* Background effects cyberpunk */}
+      <div className="absolute inset-0 circuit-bg opacity-20" />
+      <div className="absolute inset-0 bg-gradient-to-b from-violet-950/50 via-transparent to-cyan-950/30" />
+      
+      {/* Animated glow orbs */}
+      <div className="absolute top-20 left-10 w-96 h-96 bg-violet-600/20 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-cyan-600/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
       
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -588,114 +594,169 @@ const DownloadAppSection = () => {
           whileInView="visible"
           viewport={{ once: true }}
           variants={staggerContainer}
-          className="flex flex-col lg:flex-row items-center justify-between gap-10"
+          className="max-w-6xl mx-auto"
         >
-          {/* Text Content */}
-          <motion.div variants={fadeInUp} className="text-center lg:text-left max-w-xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full mb-6">
-              <span className="relative flex h-3 w-3">
+          {/* Header */}
+          <motion.div variants={fadeInUp} className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-violet-500/10 to-cyan-500/10 border border-violet-500/20 rounded-full mb-6">
+              <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
               </span>
               <span className="text-white/80 text-sm font-medium">Disponible maintenant</span>
             </div>
             
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Télécharge l'App <span className="text-transparent bg-gradient-to-r from-cyan-400 to-fuchsia-400 bg-clip-text">QQUIZ PRODIGY</span>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+              Télécharge <span className="text-transparent bg-gradient-to-r from-cyan-400 via-violet-400 to-fuchsia-400 bg-clip-text neon-text-cyan">QQUIZ PRODIGY</span>
             </h2>
             
-            <p className="text-lg text-white/70 mb-8">
-              Joue partout, même hors ligne ! Défie tes amis, grimpe les classements et deviens une légende du quiz.
+            <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto">
+              Le quiz qui te rend accro. Joue partout, défie tes amis, deviens une légende.
             </p>
-            
-            {/* Download Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <a 
-                href="#" 
-                className="flex items-center gap-3 bg-black hover:bg-black/80 text-white px-6 py-4 rounded-xl transition-all hover:scale-105 shadow-xl"
-              >
-                <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
-                </svg>
-                <div className="text-left">
-                  <div className="text-xs text-white/60">Télécharger sur</div>
-                  <div className="text-lg font-semibold">App Store</div>
-                </div>
-              </a>
-              
-              <a 
-                href="#" 
-                className="flex items-center gap-3 bg-black hover:bg-black/80 text-white px-6 py-4 rounded-xl transition-all hover:scale-105 shadow-xl"
-              >
-                <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/>
-                </svg>
-                <div className="text-left">
-                  <div className="text-xs text-white/60">Disponible sur</div>
-                  <div className="text-lg font-semibold">Google Play</div>
-                </div>
-              </a>
-            </div>
           </motion.div>
-          
-          {/* Phone Mockup */}
-          <motion.div 
-            variants={scaleIn}
-            className="relative"
-          >
-            <div className="relative w-64 h-[500px] bg-gradient-to-br from-slate-800 to-slate-900 rounded-[3rem] p-3 shadow-2xl border border-white/10">
-              {/* Phone notch */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-black rounded-b-2xl z-10" />
+
+          {/* Main Content Grid */}
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Phone Mockup Premium */}
+            <motion.div variants={scaleIn} className="relative mx-auto">
+              {/* Glow effect behind phone */}
+              <div className="absolute inset-0 bg-gradient-to-r from-violet-500 to-cyan-500 blur-3xl opacity-30 scale-110" />
               
-              {/* Screen */}
-              <div className="w-full h-full bg-gradient-to-br from-violet-600 via-purple-600 to-fuchsia-600 rounded-[2.5rem] overflow-hidden relative">
-                {/* App content preview */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
-                  <img 
-                    src={getAssetPath('/images/logo/Logo_Principal_Neon.png')} 
-                    alt="QQUIZ PRODIGY"
-                    className="w-24 h-24 mb-4"
-                  />
-                  <h3 className="text-white text-xl font-bold mb-2">QQUIZ PRODIGY</h3>
-                  <p className="text-white/70 text-sm text-center mb-6">Le quiz qui te rend accro</p>
+              {/* Phone Frame */}
+              <div className="relative w-72 h-[580px] bg-gradient-to-br from-slate-900 to-black rounded-[3.5rem] p-4 shadow-2xl border-2 border-white/10">
+                {/* Phone notch */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-36 h-8 bg-black rounded-b-3xl z-20" />
+                
+                {/* Screen */}
+                <div className="w-full h-full bg-gradient-to-br from-violet-950 via-purple-950 to-black rounded-[3rem] overflow-hidden relative border border-violet-500/20">
+                  {/* Circuit bg on screen */}
+                  <div className="absolute inset-0 circuit-bg opacity-10" />
                   
-                  {/* Stats preview */}
-                  <div className="grid grid-cols-2 gap-3 w-full">
-                    <div className="bg-white/10 backdrop-blur rounded-xl p-3 text-center">
-                      <div className="text-2xl font-bold text-white">50K+</div>
-                      <div className="text-xs text-white/60">Joueurs</div>
+                  {/* App content */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center p-8">
+                    {/* Logo Principal Néon */}
+                    <div className="relative mb-6">
+                      <div className="absolute inset-0 bg-violet-500/30 blur-2xl rounded-full" />
+                      <img 
+                        src={getAssetPath('/images/logo/Logo_Principal_Neon.png')} 
+                        alt="QQUIZ PRODIGY"
+                        className="w-32 h-32 object-contain relative z-10 drop-shadow-[0_0_25px_rgba(139,92,246,0.6)]"
+                      />
                     </div>
-                    <div className="bg-white/10 backdrop-blur rounded-xl p-3 text-center">
-                      <div className="text-2xl font-bold text-white">1M+</div>
-                      <div className="text-xs text-white/60">Parties</div>
+                    
+                    <h3 className="text-white text-2xl font-black mb-2 neon-text-cyan">QQUIZ PRODIGY</h3>
+                    <p className="text-cyan-400/80 text-sm text-center mb-8 font-medium">Le quiz qui te rend accro</p>
+                    
+                    {/* Stats cards */}
+                    <div className="grid grid-cols-2 gap-3 w-full">
+                      <div className="bg-gradient-to-br from-violet-500/10 to-transparent backdrop-blur-sm border border-violet-500/20 rounded-xl p-4 text-center">
+                        <div className="text-3xl font-black text-transparent bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text">50K+</div>
+                        <div className="text-xs text-white/50 font-medium mt-1">Joueurs</div>
+                      </div>
+                      <div className="bg-gradient-to-br from-cyan-500/10 to-transparent backdrop-blur-sm border border-cyan-500/20 rounded-xl p-4 text-center">
+                        <div className="text-3xl font-black text-transparent bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text">1M+</div>
+                        <div className="text-xs text-white/50 font-medium mt-1">Parties</div>
+                      </div>
+                    </div>
+                    
+                    {/* Fake button */}
+                    <div className="mt-6 w-full">
+                      <div className="bg-gradient-to-r from-cyan-500 to-violet-500 text-white font-bold py-3 px-6 rounded-full text-center text-sm shadow-lg">
+                        Jouer Maintenant
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            
-            {/* Floating elements */}
-            <motion.div 
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 3, repeat: Infinity }}
-              className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-xl"
-            >
-              <Trophy className="w-8 h-8 text-white" />
+              
+              {/* Floating icons */}
+              <motion.div 
+                animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -top-6 -right-6 w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-2xl border-2 border-white/20"
+              >
+                <Trophy className="w-10 h-10 text-white drop-shadow-lg" />
+              </motion.div>
+              
+              <motion.div 
+                animate={{ y: [0, 12, 0], rotate: [0, -5, 0] }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -bottom-6 -left-6 w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl flex items-center justify-center shadow-2xl border-2 border-white/20"
+              >
+                <Zap className="w-8 h-8 text-white drop-shadow-lg" />
+              </motion.div>
             </motion.div>
-            
-            <motion.div 
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2.5, repeat: Infinity }}
-              className="absolute -bottom-4 -left-4 w-14 h-14 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl flex items-center justify-center shadow-xl"
-            >
-              <Zap className="w-7 h-7 text-white" />
+
+            {/* Right: Features + Download Buttons */}
+            <motion.div variants={fadeInUp} className="space-y-8">
+              {/* Features list */}
+              <div className="space-y-4">
+                {[
+                  { icon: Zap, title: "Jeu ultra-rapide", desc: "Parties de 2 minutes, action non-stop" },
+                  { icon: Trophy, title: "Classement mondial", desc: "Grimpe les ligues et deviens légende" },
+                  { icon: Users, title: "Défis 1v1", desc: "Affronte tes amis en temps réel" },
+                  { icon: Target, title: "513 questions", desc: "25+ catégories : Rap, Football, Netflix..." }
+                ].map((feature, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                    className="flex items-start gap-4 p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-violet-500/30 hover:bg-white/[0.04] transition-all duration-300"
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500/20 to-cyan-500/20 border border-violet-500/30 flex items-center justify-center flex-shrink-0">
+                      <feature.icon className="w-6 h-6 text-cyan-400" />
+                    </div>
+                    <div>
+                      <h4 className="text-white font-bold text-lg mb-1">{feature.title}</h4>
+                      <p className="text-white/50 text-sm">{feature.desc}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Download Buttons */}
+              <div className="space-y-4 pt-4">
+                <a 
+                  href="#" 
+                  className="group flex items-center gap-4 bg-gradient-to-r from-white/10 to-white/5 hover:from-white/15 hover:to-white/10 border border-white/10 hover:border-white/20 text-white px-6 py-4 rounded-2xl transition-all hover:scale-[1.02] shadow-lg hover:shadow-xl"
+                >
+                  <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center">
+                    <svg className="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                    </svg>
+                  </div>
+                  <div className="flex-1 text-left">
+                    <div className="text-xs text-white/50 font-medium">Télécharger sur</div>
+                    <div className="text-xl font-bold">App Store</div>
+                  </div>
+                  <ArrowRight className="w-5 h-5 text-white/30 group-hover:text-white/60 group-hover:translate-x-1 transition-all" />
+                </a>
+                
+                <a 
+                  href="#" 
+                  className="group flex items-center gap-4 bg-gradient-to-r from-white/10 to-white/5 hover:from-white/15 hover:to-white/10 border border-white/10 hover:border-white/20 text-white px-6 py-4 rounded-2xl transition-all hover:scale-[1.02] shadow-lg hover:shadow-xl"
+                >
+                  <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center">
+                    <svg className="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/>
+                    </svg>
+                  </div>
+                  <div className="flex-1 text-left">
+                    <div className="text-xs text-white/50 font-medium">Disponible sur</div>
+                    <div className="text-xl font-bold">Google Play</div>
+                  </div>
+                  <ArrowRight className="w-5 h-5 text-white/30 group-hover:text-white/60 group-hover:translate-x-1 transition-all" />
+                </a>
+              </div>
             </motion.div>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>
   );
 };
+
 
 // Footer
 const Footer = () => {
@@ -705,7 +766,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
             <img 
-              src={getAssetPath('/images/logo/Icone_App_Dark.png')} 
+              src={getAssetPath('/images/logo/Logo_Principal_Neon.png')} 
               alt="QQUIZ" 
               className="w-10 h-10 rounded-lg opacity-80"
             />

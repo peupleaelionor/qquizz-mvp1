@@ -8,7 +8,7 @@ const BASE_URL = import.meta.env.BASE_URL || '/';
 
 /**
  * Retourne le chemin complet d'un asset
- * @param path - Chemin relatif de l'asset (ex: '/images/logo/Icone_App_Dark.png')
+ * @param path - Chemin relatif de l'asset (ex: '/images/logo/Logo_Principal_Neon.png')
  * @returns Chemin complet avec la base URL
  */
 export function getAssetPath(path: string): string {
@@ -30,7 +30,7 @@ export function getAssetPath(path: string): string {
  */
 export const ASSETS = {
   logo: {
-    icon: getAssetPath('/images/logo/Icone_App_Dark.png'),
+    icon: getAssetPath('/images/logo/Logo_Principal_Neon.png'),
     main: getAssetPath('/images/logo/Logo_Principal_Neon.png'),
   },
   badges: {

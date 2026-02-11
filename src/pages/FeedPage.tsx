@@ -208,7 +208,7 @@ export default function FeedPage() {
       <div className="sticky top-0 z-40 bg-black/80 backdrop-blur-xl border-b border-white/5">
         <div className="flex items-center justify-between px-4 py-3">
           <div className="flex items-center gap-3">
-            <img src={getAssetPath('/images/logo/Icone_App_Dark.png')} alt="QQUIZ" className="w-8 h-8 rounded-lg" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+            <img src={getAssetPath('/images/logo/Logo_Principal_Neon.png')} alt="QQUIZ" className="w-8 h-8 rounded-lg" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
             <span className="text-lg font-black bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">QQUIZ</span>
           </div>
           <div className="flex items-center gap-2">
